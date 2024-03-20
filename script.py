@@ -1,7 +1,4 @@
 import random
-print("You decide to go the first casino you see with $50 to your name,")
-name = input("By the way what is your name")
-print("Anyways",name,"you walk in to columbian casino with $50 and decide to play roulette and the dealer asks you")
 choice = input("Do you Want Play?")
 playernum = int()
 playercolor = int()
@@ -18,11 +15,7 @@ def generate():
 
 def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice):
     if moneytotal > 0:
-        
-        
-
         if choice == "yes" or choice == "Yes":
-            print("The dealer asks")
             betchoice = int(input("Do you want to bet color & number(1) or just color (2)"))
             moneynum = int(input("How much do you want to bet?"))
             moneytotal = moneytotal - moneynum
@@ -72,14 +65,8 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
             print("Loser")
         
     else:
-        print("you have been kicked out from the casino bum")
+        print("you have been kicked out from the casino bum for trying to play without money, you homeless bum")
         
-
-
-
-        
-
-
 generatednum, generatedcolor = generate()
 system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice)
 
