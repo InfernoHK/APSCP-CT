@@ -1,14 +1,15 @@
 import random
+print("you have $50 and you go to a roulette table")
 choice = input("Do you Want Play?")
 playernum = int()
-playercolor = int()
+playercolor = ("")
 moneytotal = 50
 moneynum = int()
 betchoice = int()
 
 def generate():
     generatednum = random.randint(1,36)
-    generatedcolor = random.randint(37, 38)
+    generatedcolor = random.choice(["red", "black"])
     
     return generatednum, generatedcolor
     
@@ -22,36 +23,35 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
        
 
             if betchoice == 1:
-                print("The dealer says")
                 playernum = int(input("Choose a Number Between 1 and 36"))
-                playercolor = int(input("Choose a color Black(37) or Red(38)"))
+                playercolor = (input("Choose a color Black or Red"))
                 if playernum == generatednum and playercolor == generatedcolor:
                     print("you win")
                     print("it was", generatednum,generatedcolor)
                     moneytotal = moneytotal + 2*moneynum
                     print("your new total is", moneytotal)
-                    print(moneytotal)
+                    print("$",moneytotal)
 
                 if playercolor == generatedcolor:
                     moneytotal = moneytotal + moneynum/2
                     print("you only got the color right")
-                    print("your new total is", moneytotal)
+                    print("your new total is","$", moneytotal)
                 else:
                     print("you lose")
                     print("it was" ,generatednum,generatedcolor)
-                    print("your new total is", moneytotal)
+                    print("your new total is","$", moneytotal)
 
             if betchoice == 2:
-                playercolor = int(input("Choose a color Black(37) or Red(38)"))
+                playercolor = (input("Choose a color Black or Red"))
                 if playercolor == generatedcolor:
                     moneytotal = moneytotal + 1.5*moneynum
                     print("you got it right")
                     print("it was" ,generatedcolor)
-                    print("your new total is", moneytotal)
+                    print("your new total is","$", moneytotal)
                 else:
                     print("you got it wrong")
                     print("it was" ,generatedcolor)
-                    print("your new total is", moneytotal)
+                    print("your new total is","$", moneytotal)
 
 
             choice = input("Do you Want Play Again?")
@@ -65,7 +65,7 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
             print("Loser")
         
     else:
-        print("you have been kicked out from the casino bum for trying to play without money, you homeless bum")
+        print("you have been kicked out from the casino for trying to play without money, you homeless bum")
         
 generatednum, generatedcolor = generate()
 system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice)
