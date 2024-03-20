@@ -1,11 +1,14 @@
 import random
-
-choice = input("Do you Want Play")
+print("You decide to go the first casino you see with $50 to your name,")
+name = input("By the way what is your name")
+print("Anyways",name,"you walk in to columbian casino with $50 and decide to play roulette and the dealer asks you")
+choice = input("Do you Want Play?")
 playernum = int()
 playercolor = int()
 moneytotal = 50
 moneynum = int()
 betchoice = int()
+
 def generate():
     generatednum = random.randint(1,36)
     generatedcolor = random.randint(37, 38)
@@ -19,12 +22,14 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
         
 
         if choice == "yes" or choice == "Yes":
+            print("The dealer asks")
             betchoice = int(input("Do you want to bet color & number(1) or just color (2)"))
-            moneynum = int(input("How much do you want to bet"))
+            moneynum = int(input("How much do you want to bet?"))
             moneytotal = moneytotal - moneynum
        
 
             if betchoice == 1:
+                print("The dealer says")
                 playernum = int(input("Choose a Number Between 1 and 36"))
                 playercolor = int(input("Choose a color Black(37) or Red(38)"))
                 if playernum == generatednum and playercolor == generatedcolor:
@@ -62,10 +67,13 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
                 system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice)
             else:
                 print("Thank you for playing")
+                print("*you walk out the casino*")
         else:
             print("Loser")
+        
     else:
         print("you have been kicked out from the casino bum")
+        
 
 
 
