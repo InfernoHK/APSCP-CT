@@ -6,6 +6,7 @@ playercolor = ("")
 moneytotal = 50
 moneynum = int()
 betchoice = int()
+turns = []
 
 def generate():
     generatednum = random.randint(1,36)
@@ -14,10 +15,10 @@ def generate():
     return generatednum, generatedcolor
     
 
-def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice):
+def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice,turns):
     if moneytotal > 0:
         if choice == "yes" or choice == "Yes":
-            betchoice = int(input("Do you want to bet color(1) & number or just color(2)"))
+            betchoice = int(input("Do you want to bet color & number(1) or just color(2)"))
             moneynum = int(input("How much do you want to bet?"))
             moneytotal = moneytotal - moneynum
        
@@ -56,8 +57,11 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
 
             choice = input("Do you Want Play Again?")
             if choice == "yes" or choice == "Yes":
+                turns.append(generatednum)
+                turns.append(generatedcolor)
+                print(turns)
                 generatednum, generatedcolor = generate()
-                system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice)
+                system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice,turns)
             else:
                 print("Thank you for playing")
                 print("*you walk out the casino*")
@@ -68,7 +72,7 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
         print("you have been kicked out from the casino for trying to play without money.")
         
 generatednum, generatedcolor = generate()
-system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice)
+system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice,turns)
 
     
     
