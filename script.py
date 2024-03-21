@@ -17,7 +17,7 @@ def generate():
 def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice):
     if moneytotal > 0:
         if choice == "yes" or choice == "Yes":
-            betchoice = int(input("Do you want to bet color & number(1) or just color (2)"))
+            betchoice = int(input("Do you want to bet color(1) & number or just color(2)"))
             moneynum = int(input("How much do you want to bet?"))
             moneytotal = moneytotal - moneynum
        
@@ -65,7 +65,7 @@ def system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,mon
             print("Loser")
         
     else:
-        print("you have been kicked out from the casino for trying to play without money, you homeless bum")
+        print("you have been kicked out from the casino for trying to play without money.")
         
 generatednum, generatedcolor = generate()
 system(playercolor,playernum,generatednum,generatedcolor,choice,moneynum,moneytotal,betchoice)
